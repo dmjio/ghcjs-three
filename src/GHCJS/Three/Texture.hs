@@ -1,7 +1,11 @@
 {-# LANGUAGE JavaScriptFFI, GeneralizedNewtypeDeriving #-}
 module GHCJS.Three.Texture (Texture(..), mkTexture, setNeedsUpdate,
                             TextureLoader(..), mkTextureLoader, loadTexture,
-    ImageLoader(..), mkImageLoader, setCrossOrigin, loadImage) where
+                            HTMLCanvasElement,
+                            ImageLoader(..),
+                            mkImageLoader,
+                            setCrossOrigin,
+                            loadImage) where
 
 import Data.Functor
 import GHCJS.Types
