@@ -1,2 +1,2 @@
 { pkgs ? import <nixpkgs> {} }:
-  pkgs.haskell.packages.ghcjsHEAD.callPackage ./ghcjs-three.nix {}
+  pkgs.haskell.packages.ghcjs.callPackage ./ghcjs-three.nix {}

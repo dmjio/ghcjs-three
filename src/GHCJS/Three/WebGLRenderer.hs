@@ -6,16 +6,15 @@ module GHCJS.Three.WebGLRenderer (
     setShadowMapType
 ) where
 
-import GHCJS.Types
-import qualified GHCJS.Marshal as Marshal
-import GHCJS.DOM.Types (Element)
-import JavaScript.Object
+import qualified GHCJS.Marshal      as Marshal
+import           GHCJS.Types
+import           JavaScript.Object
 
-import Control.Monad
+import           Control.Monad
 
-import GHCJS.Three.Monad
-import GHCJS.Three.Scene
-import GHCJS.Three.Camera
+import           GHCJS.Three.Monad
+import           GHCJS.Three.Scene
+import           GHCJS.Three.Camera
 
 -- | webgl renderer definition
 newtype WebGLRenderer = WebGLRenderer {
@@ -63,10 +62,11 @@ foreign import javascript unsafe "($3)['render']($1, $2)"
 foreign import javascript unsafe "($2)['shadowMap']['enabled'] = $1 === 1"
     thr_setShadowMapEnabled :: Int -> JSVal -> Three ()
 
+newtype Element = Element JSVal
 
 -- | get the dom element (canvas) of the output
 domElement :: WebGLRenderer -> Three (Maybe Element)
-domElement r = (thr_domElement (toJSVal r) >>= Marshal.fromJSVal)
+domElement r = thr_domElement (toJSVal r) >>= \r -> pure $ Just $ (Element r)
 
 -- | set size of the output canvas
 setSize :: Double -> Double -> WebGLRenderer -> Three ()

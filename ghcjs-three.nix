@@ -1,5 +1,5 @@
 { mkDerivation, AC-Vector, base, data-default, ghcjs-base
-, ghcjs-dom, stdenv, transformers
+, stdenv, transformers
 }:
 mkDerivation {
   pname = "ghcjs-three";
@@ -8,9 +8,9 @@ mkDerivation {
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [
-    AC-Vector base data-default ghcjs-base ghcjs-dom transformers
+    AC-Vector base data-default ghcjs-base transformers
   ];
-  executableHaskellDepends = [ base ghcjs-dom ];
+  executableHaskellDepends = [ base ];
   testHaskellDepends = [ base ];
   homepage = "http://github.com/manyoo/ghcjs-three#readme";
   description = "A Three.js wrapper for GHCJS";
