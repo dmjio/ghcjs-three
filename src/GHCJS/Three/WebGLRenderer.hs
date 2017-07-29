@@ -3,7 +3,7 @@ module GHCJS.Three.WebGLRenderer (
     WebGLRenderer(..), RendererOptionItem(..), RendererOption, mkWebGLRenderer,
     domElement, setSize, setViewport, setClearColor, setShadowMapEnabled, render,
     ShadowMapType, shadowMapTypeBasic, shadowMapTypePCF, shadowMapTypePCFSoft,
-    setShadowMapType
+    setShadowMapType, Element (..)
 ) where
 
 import qualified GHCJS.Marshal      as Marshal
